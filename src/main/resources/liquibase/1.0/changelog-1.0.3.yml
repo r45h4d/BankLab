@@ -1,0 +1,57 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create offers table
+      author: Rashad Amanov
+      changes:
+        - createTable:
+            tableName: offers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: term
+                  type: integer
+                  constraints:
+                    nullable: true
+              - column:
+                  name: interest
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: monthly_payment
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: amount
+                  type: numeric(16,2)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: accepted
+                  type: boolean
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: date
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: date
+                  constraints:
+                    nullable: true
+              - column:
+                  name: credit_id
+                  type: bigint
+                  constraints:
+                    foreignKeyName: fk_offers_credits
+                    references: credits(id)
+                    nullable: false

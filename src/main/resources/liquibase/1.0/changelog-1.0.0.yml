@@ -1,0 +1,40 @@
+databaseChangeLog:
+  - changeSet:
+      id: Create customers table
+      author: Rashad Amanov
+      changes:
+        - createTable:
+            tableName: customers
+            columns:
+              - column:
+                  name: id
+                  type: bigint
+                  autoIncrement: true
+                  constraints:
+                    primaryKey: true
+                    nullable: false
+              - column:
+                  name: pin
+                  type: varchar(128)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: full_name
+                  type: varchar(128)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: phone_number
+                  type: varchar(128)
+                  constraints:
+                    nullable: true
+              - column:
+                  name: created_at
+                  type: date
+                  constraints:
+                    nullable: true
+              - column:
+                  name: updated_at
+                  type: date
+                  constraints:
+                    nullable: true
